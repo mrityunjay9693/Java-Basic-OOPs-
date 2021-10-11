@@ -1,0 +1,5 @@
+/home/mrityunjay/GitHub/Mrityunjay-/C#pg/obj/Debug/net5.0/C#pg.csprojAssemblyReference.cache
+/home/mrityunjay/GitHub/Mrityunjay-/C#pg/obj/Debug/net5.0/C#pg.GeneratedMSBuildEditorConfig.editorconfig
+/home/mrityunjay/GitHub/Mrityunjay-/C#pg/obj/Debug/net5.0/C#pg.AssemblyInfoInputs.cache
+/home/mrityunjay/GitHub/Mrityunjay-/C#pg/obj/Debug/net5.0/C#pg.AssemblyInfo.cs
+/home/mrityunjay/GitHub/Mrityunjay-/C#pg/obj/Debug/net5.0/C#pg.csproj.CoreCompileInputs.cache
