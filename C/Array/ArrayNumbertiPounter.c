@@ -9,5 +9,4 @@ int main()
         printf("%p\n",&array[i]);
     }
     return 0;
-
 }

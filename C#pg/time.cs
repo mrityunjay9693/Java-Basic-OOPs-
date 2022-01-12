@@ -2,7 +2,7 @@ using System;
 
 class Time
 {
-    int hr1,hr2, min1,min2,sec1,sec2;
+    int hr1,hr2,hr3, min1,min2,min3, sec1,sec2,sec3;
     //int hr4,min4,sec4;
 
     public void Input()
