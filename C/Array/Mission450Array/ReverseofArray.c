@@ -1,7 +1,7 @@
-#include<stdio.h>
+#include <stdio.h>
 //#define MAXIMUM_SIZE 10
 void display_array(int *array,  int size);
-void reverseofArray(int *array, int start, int end);
+void vfreverseofArray(int *array, int start, int end);
 
 int main(){
     int start=0,end, size;

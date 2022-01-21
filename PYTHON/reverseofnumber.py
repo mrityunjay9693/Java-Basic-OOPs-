@@ -1,4 +1,4 @@
-num = 6741
+num = 8525879
 print("Input number:",num)
 reverse_num = 0
 
