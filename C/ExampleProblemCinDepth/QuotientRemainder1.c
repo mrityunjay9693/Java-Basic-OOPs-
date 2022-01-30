@@ -25,4 +25,4 @@ int main()
         printf("Quotient : %d\nRemainder : %d\n", quotient, remainder);
     }
     return 0;   
-}
+} 
