@@ -2,5 +2,8 @@ package BankApplication.source.local.tilde.bank;
 
 public class BankApplication {
     
-    System.out.println("Bank Application Start!");
+    public static void main(String[] args) {
+        System.out.println("Hello");
+    }
+    
 }
