@@ -8,10 +8,10 @@ public class BankApplication {
 
     public static void menu()
     {
-
+        
     }
 
-    public void newAccount()
+    public static void newAccount()
     {
 
     }
