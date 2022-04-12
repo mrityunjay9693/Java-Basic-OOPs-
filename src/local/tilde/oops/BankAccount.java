@@ -19,6 +19,7 @@ public class BankAccount {
         while (true) {
             System.out.println("MAIN MENU");
             System.out.println("1.Initialize Account");
+            System.out.println("2.Deposit Amount");
             System.out.println("4.Print Account");
             System.out.print("Enter choice(0 to exit): ");
             ch = scan.nextInt();
@@ -28,6 +29,9 @@ public class BankAccount {
                     break;
                 case 1:
                     initializeAccount();
+                    break;
+                case 2:
+                    deposit();
                     break;
                 case 4:
                     printAccount();
@@ -78,7 +82,12 @@ public class BankAccount {
     }
 
     public void deposit() {
-
+        float amount;
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter amount: ");
+        amount = scan.nextFloat();
+        balance += amount; 
+        System.out.println("\nAmount deposited\n");
     }
 
     public void withdraw() {
