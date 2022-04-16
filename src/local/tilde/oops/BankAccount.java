@@ -7,7 +7,7 @@ public class BankAccount {
     private String name;
     private String acType;
     private float balance;
-    private int init_flag = 0;
+    private int init_flag = 0;  //instance varible
 
     public BankAccount() { // constructor.
         init_flag = 0; // account uninitialized.
@@ -18,9 +18,9 @@ public class BankAccount {
         Scanner scan = new Scanner(System.in);
         while (true) {
             System.out.println("MAIN MENU");
-            System.out.println("1.Initialize Account");
-            System.out.println("2.Deposit Amount");
-            System.out.println("4.Print Account");
+            System.out.println("1. New Account");
+            System.out.println("2. Deposit Amount");
+            System.out.println("4. Print Account");
             System.out.print("Enter choice(0 to exit): ");
             ch = scan.nextInt();
             switch (ch) {
@@ -28,7 +28,7 @@ public class BankAccount {
                     System.exit(0);
                     break;
                 case 1:
-                    initializeAccount();
+                    newAccount();
                     break;
                 case 2:
                     deposit();
@@ -43,13 +43,12 @@ public class BankAccount {
 
     }
 
-    public void initializeAccount() {
-        acNo = 123;
-        name = "Mrityunjay Kumar";
-        acType = "SA";
-        balance = 10000.00f;
-        System.out.println("\nAccount initialized!\n");
-        init_flag = 1;
+    public void newAccount() {
+        Scanner scan = new Scanner(System.in); 
+        System.out.println("Enter Depositor Name: ");
+        name = scan.nextLine();
+        System.out.println("Enter Account Type(SA/CA): ");
+        acType = scan.next();
     }
 
     // Parameterized constructor.
@@ -60,10 +59,6 @@ public class BankAccount {
         this.balance = balance;
         System.out.println("\nAccount initialized!\n");
         init_flag = 1;
-    }
-
-    public static void newAccount() {
-
     }
 
     public void editAccount() {
@@ -82,16 +77,32 @@ public class BankAccount {
     }
 
     public void deposit() {
-        float amount;
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter amount: ");
-        amount = scan.nextFloat();
-        balance += amount; 
-        System.out.println("\nAmount deposited\n");
+        if (init_flag == 0) {
+            float amount;
+            Scanner scan = new Scanner(System.in);
+            System.out.print("Enter amount: ");
+            amount = scan.nextFloat();
+            balance += amount;
+            System.out.println("\nAmount deposited\n");
+        } else {
+            System.out.println("\nAccount is not initialized.\n");
+        }
     }
 
     public void withdraw() {
-
+        if (init_flag == 1) {
+            float amount;
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Eneter amount: ");
+            amount = scan.nextFloat();
+            if (balance >= amount) {
+                balance -= amount;
+            } else {
+                System.out.println("\nTransaction Declined\n");
+            }
+        } else {
+            System.out.println("\nAccount is not initialized.\n");
+        }
     }
 
     public void displayBalance() {
@@ -101,4 +112,4 @@ public class BankAccount {
     public static void main(String[] args) {
         new BankAccount().menu();
     }
-}
+}     
