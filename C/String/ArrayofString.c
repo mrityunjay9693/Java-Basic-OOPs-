@@ -2,7 +2,7 @@
 
 #include<stdio.h>
 
-int main(){
+int main(){    
     char names[5][20];
 
     printf("The size of array names is %ld bytes\n",sizeof(names));

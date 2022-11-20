@@ -1,0 +1,16 @@
+D:\GITHUB\Mrityunjay-\C#pg\SearchingSorting\SearchingSorting\bin\Debug\net5.0\SearchingSorting.exe
+D:\GITHUB\Mrityunjay-\C#pg\SearchingSorting\SearchingSorting\bin\Debug\net5.0\SearchingSorting.deps.json
+D:\GITHUB\Mrityunjay-\C#pg\SearchingSorting\SearchingSorting\bin\Debug\net5.0\SearchingSorting.runtimeconfig.json
+D:\GITHUB\Mrityunjay-\C#pg\SearchingSorting\SearchingSorting\bin\Debug\net5.0\SearchingSorting.runtimeconfig.dev.json
+D:\GITHUB\Mrityunjay-\C#pg\SearchingSorting\SearchingSorting\bin\Debug\net5.0\SearchingSorting.dll
+D:\GITHUB\Mrityunjay-\C#pg\SearchingSorting\SearchingSorting\bin\Debug\net5.0\ref\SearchingSorting.dll
+D:\GITHUB\Mrityunjay-\C#pg\SearchingSorting\SearchingSorting\bin\Debug\net5.0\SearchingSorting.pdb
+D:\GITHUB\Mrityunjay-\C#pg\SearchingSorting\SearchingSorting\obj\Debug\net5.0\SearchingSorting.csproj.AssemblyReference.cache
+D:\GITHUB\Mrityunjay-\C#pg\SearchingSorting\SearchingSorting\obj\Debug\net5.0\SearchingSorting.GeneratedMSBuildEditorConfig.editorconfig
+D:\GITHUB\Mrityunjay-\C#pg\SearchingSorting\SearchingSorting\obj\Debug\net5.0\SearchingSorting.AssemblyInfoInputs.cache
+D:\GITHUB\Mrityunjay-\C#pg\SearchingSorting\SearchingSorting\obj\Debug\net5.0\SearchingSorting.AssemblyInfo.cs
+D:\GITHUB\Mrityunjay-\C#pg\SearchingSorting\SearchingSorting\obj\Debug\net5.0\SearchingSorting.csproj.CoreCompileInputs.cache
+D:\GITHUB\Mrityunjay-\C#pg\SearchingSorting\SearchingSorting\obj\Debug\net5.0\SearchingSorting.dll
+D:\GITHUB\Mrityunjay-\C#pg\SearchingSorting\SearchingSorting\obj\Debug\net5.0\ref\SearchingSorting.dll
+D:\GITHUB\Mrityunjay-\C#pg\SearchingSorting\SearchingSorting\obj\Debug\net5.0\SearchingSorting.pdb
+D:\GITHUB\Mrityunjay-\C#pg\SearchingSorting\SearchingSorting\obj\Debug\net5.0\SearchingSorting.genruntimeconfig.cache
