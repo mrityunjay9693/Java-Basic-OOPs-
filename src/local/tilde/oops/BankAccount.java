@@ -1,5 +1,6 @@
 package local.tilde.oops;
 
+import java.sql.*;
 import java.util.Scanner;
 
 public class BankAccount {
@@ -7,7 +8,7 @@ public class BankAccount {
     private String name;
     private String acType;
     private float balance;
-    private int init_flag = 0;  //instance varible
+    private int init_flag = 0; // instance varible
 
     public BankAccount() { // constructor.
         init_flag = 0; // account uninitialized.
@@ -40,15 +41,27 @@ public class BankAccount {
                     System.out.println("Invalid input.");
             }
         }
-
     }
 
     public void newAccount() {
-        Scanner scan = new Scanner(System.in); 
-        System.out.println("Enter Depositor Name: ");
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter Depositor Name: ");
         name = scan.nextLine();
-        System.out.println("Enter Account Type(SA/CA): ");
+        System.out.print("Enter Account Type(SA/CA): ");
         acType = scan.next();
+        System.out.print("Enter initial balance:");
+        balance = scan.nextFloat();
+        System.out.println("\n");
+
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bank_2022", "bank_22", "BanK$2022");
+            Statement stmt = con.createStatement();
+            String sql = "INSERT INTO account(name, acType, balance) VALUES('" +name + "', '" + acType + "', '" + balance + "')";
+            stmt.executeUpdate(sql);
+            System.out.println("Acount created Successfully!");
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
     }
 
     // Parameterized constructor.
@@ -58,7 +71,6 @@ public class BankAccount {
         this.acType = acType;
         this.balance = balance;
         System.out.println("\nAccount initialized!\n");
-        init_flag = 1;
     }
 
     public void editAccount() {
@@ -66,14 +78,10 @@ public class BankAccount {
     }
 
     public void printAccount() {
-        if (init_flag == 1) {
-            System.out.println("\nAccount Number:" + acNo);
-            System.out.println("Account Holder Name: " + name);
-            System.out.println("Account Type: " + acType);
-            System.out.println("Account Balance: " + balance + "\n");
-        } else {
-            System.out.println("\nAccount is not initialized. Initialize account first to continue...\n");
-        }
+        System.out.println("\nAccount Number:" + acNo);
+        System.out.println("Account Holder Name: " + name);
+        System.out.println("Account Type: " + acType);
+        System.out.println("Account Balance: " + balance + "\n");
     }
 
     public void deposit() {
@@ -112,4 +120,4 @@ public class BankAccount {
     public static void main(String[] args) {
         new BankAccount().menu();
     }
-}     
+}
