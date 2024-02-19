@@ -51,14 +51,16 @@ public class BankAccount {
         acType = scan.next();
         System.out.print("Enter initial balance:");
         balance = scan.nextFloat();
-        System.out.println("\n");
+        System.out.println();
 
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bank_2022", "bank_22", "BanK$2022");
             Statement stmt = con.createStatement();
-            String sql = "INSERT INTO account(name, acType, balance) VALUES('" +name + "', '" + acType + "', '" + balance + "')";
+            String sql = "INSERT INTO account(name, acType, balance) VALUES('" + name + "', '" + acType + "', '"
+                    + balance + "')";
             stmt.executeUpdate(sql);
             System.out.println("Acount created Successfully!");
+            System.out.println();
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
@@ -78,10 +80,34 @@ public class BankAccount {
     }
 
     public void printAccount() {
-        System.out.println("\nAccount Number:" + acNo);
-        System.out.println("Account Holder Name: " + name);
-        System.out.println("Account Type: " + acType);
-        System.out.println("Account Balance: " + balance + "\n");
+        int readStatus = 0;
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter Account Number : ");
+        acNo = scan.nextInt();
+        String sql = "SELECT * FROM account WHERE acno = " + Integer.toString(acNo);
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bank_2022", "bank_22", "BanK$2022");
+            Statement stmt = con.createStatement();
+            ResultSet result = stmt.executeQuery(sql); // ResultSet : Interface and result is its reference
+            if (result.next()) {
+                readStatus = 1;
+                acNo = result.getInt("acno");
+                name = result.getString("name");
+                acType = result.getString("actype");
+                balance = result.getFloat("balance");
+            }
+        } catch (SQLException ex) {
+            System.out.print(ex.toString());
+        }
+        if(readStatus==1){
+            System.out.println("\nAccount Number:" + acNo);
+            System.out.println("Account Holder Name: " + name);
+            System.out.println("Account Type: " + acType);
+            System.out.println("Account Balance: " + balance + "\n");
+        } else{
+            System.out.println("Account not found!");
+        }
+        System.out.println();
     }
 
     public void deposit() {
