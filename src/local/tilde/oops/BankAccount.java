@@ -60,8 +60,7 @@ public class BankAccount {
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bank_2022", "bank_22", "BanK$2022");
             Statement stmt = con.createStatement();
-            String sql = "INSERT INTO account(name, acType, balance) VALUES('" + name + "', '" + acType + "', '"
-                    + balance + "')";
+            String sql = "INSERT INTO account(name, acType) VALUES('" + name + "', '" + acType + "')";
             stmt.executeUpdate(sql);
             System.out.println("Acount created Successfully!");
             System.out.println();
@@ -98,13 +97,22 @@ public class BankAccount {
                 status = 1;
                 name = result.getString("name");
                 acType = result.getString("actype");
-                balance = result.getFloat("balance");
             }
         } catch (Exception ex) {
             // TODO: handle exception
             System.out.println(ex.toString());
         }
         return status;
+    }
+
+    public void getBalance() {
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bank_2022", "bank_22", "BanK$2022");
+            Statement stmt = con.createStatement();
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+
     }
 
     public void printAccount() {
@@ -125,21 +133,22 @@ public class BankAccount {
             System.out.println("Name: " + name);
             System.out.print("Continue? (y/n):");
             String continuee = scan.next();
-            if(continuee.equals("n")){
+            if (continuee.equals("n")) {
                 return;
             }
             System.out.print("Enter amount: ");
             float amount = scan.nextFloat();
-            balance += amount; // amount is deposited to baance
-            try{
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bank_2022", "bank_22", "BanK$2022");
+            try {
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bank_2022", "bank_22",
+                        "BanK$2022");
                 Statement stmt = con.createStatement();
-                String sql = "UPDATE account SET balance=" + balance;
+                String sql = "INSERT INTO transaction(date, acno, particulars, type, amount) VALUES(CURDATE(), " + acNo
+                        + ", 'Cash Deposited', 'Cr', " + amount + ")";
                 stmt.executeUpdate(sql);
-            } catch(SQLException ex){
+            } catch (SQLException ex) {
                 System.out.print(ex.toString());
             }
-            
+
             System.out.println("\nAmount Deposited\n");
         } else {
             System.out.println("\nAccount Not Found!\n");
