@@ -117,9 +117,21 @@ public class BankAccount {
 
     public void printAccount() {
         if (checkAccount() == 1) {
-            System.out.println("\nAccount Number:" + acNo);
-            System.out.println("Account Holder Name: " + name);
-            System.out.println("Account Type: " + acType);
+            try {
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bank_2022", "bank_22",
+                        "BanK$2022");
+                Statement stmt = con.createStatement();
+                String sql = "SELECT ((IFNULL((SELECT SUM(amount) FROM transaction WHERE acno=1 AND type='Cr'), 0)) - (IFNULL((SELECT SUM(amount) FROM transaction WHERE acno=1 AND type='Dr'), 0))) AS balance";
+                ResultSet result = stmt.executeQuery(sql);
+                if (result.next()) {
+                    balance = result.getFloat("balance");
+                }
+            } catch (Exception ex) {
+                System.out.println(ex.toString());
+            }
+            System.out.println("\nAccount number: " + acNo);
+            System.out.println("Name: " + name);
+            System.out.println("Account type: " + acType);
             System.out.println("Account Balance: " + balance + "\n");
         } else {
             System.out.println("\nAccount not found!");
