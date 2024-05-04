@@ -121,7 +121,9 @@ public class BankAccount {
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bank_2022", "bank_22",
                         "BanK$2022");
                 Statement stmt = con.createStatement();
-                String sql = "SELECT ((IFNULL((SELECT SUM(amount) FROM transaction WHERE acno=1 AND type='Cr'), 0)) - (IFNULL((SELECT SUM(amount) FROM transaction WHERE acno=1 AND type='Dr'), 0))) AS balance";
+                String sql = "SELECT ((IFNULL((SELECT SUM(amount) FROM transaction WHERE acno=" + acNo
+                        + " AND type='Cr'), 0)) - (IFNULL((SELECT SUM(amount) FROM transaction WHERE acno=" + acNo
+                        + " AND type='Dr'), 0))) AS balance";
                 ResultSet result = stmt.executeQuery(sql);
                 if (result.next()) {
                     balance = result.getFloat("balance");
