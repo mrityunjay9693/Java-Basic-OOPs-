@@ -1,0 +1,3 @@
+Java: Java is a class based object oriented programming language which makes java very easy to write, compile, and debug 
+      code. Java programming language was developed by James Gosling in the year 1995 and later acquired by Oracle Corporation
+      from Sun Microsystems, Inc.
