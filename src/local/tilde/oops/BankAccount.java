@@ -10,8 +10,8 @@ public class BankAccount {
     private float balance;
     private int init_flag = 0; // instance varible
 
-    public BankAccount() { // constructor.
-        init_flag = 0; // account uninitialized.
+    public BankAccount() { // Default constructor.
+        init_flag = 0; // Account is uninitialized.
     }
 
     public void menu() {
@@ -102,7 +102,7 @@ public class BankAccount {
             // TODO: handle exception
             System.out.println(ex.toString());
         }
-        return status;
+        return status; 
     }
 
     public void getBalance() {
