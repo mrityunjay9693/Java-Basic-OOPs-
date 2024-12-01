@@ -8,7 +8,7 @@ public class BankAccount {
     private String name;
     private String acType;
     private float balance;
-    private int init_flag = 0; // instance varible
+    private int init_flag = 0; // instance variable
 
     public BankAccount() { // Default constructor.
         init_flag = 0; // Account is uninitialized.
@@ -23,8 +23,10 @@ public class BankAccount {
             System.out.println("2. Deposit Amount");
             System.out.println("3. Withdraw");
             System.out.println("4. Print Account");
+            System.out.println();
             System.out.print("Enter choice(0 to exit): ");
             ch = scan.nextInt();
+            System.out.println();
             switch (ch) {
                 case 0:
                     System.exit(0);
@@ -62,7 +64,7 @@ public class BankAccount {
             Statement stmt = con.createStatement();
             String sql = "INSERT INTO account(name, acType) VALUES('" + name + "', '" + acType + "')";
             stmt.executeUpdate(sql);
-            System.out.println("Acount created Successfully!");
+            System.out.println("Account created successfully!");
             System.out.println();
         } catch (SQLException ex) {
             System.out.println(ex.toString());
