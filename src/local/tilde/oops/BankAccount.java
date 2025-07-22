@@ -81,9 +81,7 @@ public class BankAccount {
     // System.out.println("\nAccount initialized!\n");
     // }
 
-    public void editAccount() {
-
-    }
+    public void editAccount() { }
 
     public int checkAccount() {
         int status = 0;
