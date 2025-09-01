@@ -1,5 +1,4 @@
 package local.tilde.oops;
-
 import java.sql.*;
 import java.util.Scanner;
 
@@ -49,7 +48,7 @@ public class BankAccount {
         }
     }
 
-    public void newAccount() {
+    public void newAccount() {  // INSERT
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter Depositor Name: ");
         name = scan.nextLine();
@@ -115,7 +114,7 @@ public class BankAccount {
 
     }
 
-    public void printAccount() {
+    public void printAccount() { //SELECT
         if (checkAccount() == 1) {
             try {
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bank_2022", "bank_22",
@@ -128,7 +127,7 @@ public class BankAccount {
                 if (result.next()) {
                     balance = result.getFloat("balance");
                 }
-            } catch (Exception ex) {
+            } catch (SQLException ex) {
                 System.out.println(ex.toString());
             }
             System.out.println("\nAccount number: " + acNo);
